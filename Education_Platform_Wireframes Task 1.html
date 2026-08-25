@@ -1,0 +1,686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education Platform - Wireframes</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;500;600&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+            padding: 30px 20px;
+            color: #4a4a4a;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 8px;
+            color: #5a6c7d;
+            font-size: 32px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+        }
+        .subtitle {
+            text-align: center;
+            color: #8b95a5;
+            margin-bottom: 40px;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        .wireframe-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+        .wireframe {
+            background: #ffffff;
+            border: 1px solid #d8dce3;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(90, 108, 125, 0.08);
+            transition: box-shadow 0.3s ease;
+        }
+        .wireframe:hover {
+            box-shadow: 0 4px 12px rgba(90, 108, 125, 0.12);
+        }
+        .wireframe-title {
+            background: linear-gradient(135deg, #f0f4f8 0%, #ffffff 100%);
+            color: #5a6c7d;
+            padding: 14px 16px;
+            font-weight: 600;
+            font-size: 13px;
+            border-bottom: 1px solid #d8dce3;
+            letter-spacing: 0.3px;
+        }
+        .wireframe-content {
+            padding: 18px;
+            height: 600px;
+            overflow-y: auto;
+            background: #fafbfc;
+            position: relative;
+        }
+        .wireframe-content::-webkit-scrollbar {
+            width: 6px;
+        }
+        .wireframe-content::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        .wireframe-content::-webkit-scrollbar-thumb {
+            background: #d8dce3;
+            border-radius: 3px;
+        }
+        /* Wireframe elements */
+        .header {
+            background: #f0f5ff;
+            padding: 12px 14px;
+            border-left: 3px solid #6b8cdb;
+            margin-bottom: 14px;
+            border-radius: 6px;
+        }
+        .header h3 {
+            color: #5a6c7d;
+            font-size: 13px;
+            font-weight: 600;
+            margin: 0;
+        }
+        .nav-bar {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 14px;
+            background: #f0f2f5;
+            padding: 6px;
+            border-radius: 6px;
+        }
+        .nav-item {
+            padding: 6px 10px;
+            background: #e8eaef;
+            color: #7b8b9e;
+            border-radius: 6px;
+            font-size: 11px;
+            flex: 1;
+            text-align: center;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .nav-item.active {
+            background: #6b8cdb;
+            color: white;
+        }
+        .card {
+            background: #ffffff;
+            border: 1px solid #e8eaef;
+            padding: 12px;
+            margin-bottom: 11px;
+            border-radius: 6px;
+        }
+        .card-title {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 4px;
+            font-size: 13px;
+        }
+        .card-desc {
+            color: #8b95a5;
+            font-size: 11px;
+            margin-bottom: 6px;
+        }
+        .progress-bar {
+            background: #e8eaef;
+            height: 5px;
+            border-radius: 2.5px;
+            overflow: hidden;
+            margin-bottom: 8px;
+        }
+        .progress-fill {
+            background: linear-gradient(90deg, #52c41a 0%, #45a517 100%);
+            height: 100%;
+            width: 60%;
+        }
+        .button {
+            background: #6b8cdb;
+            color: white;
+            border: none;
+            padding: 7px 11px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 11px;
+            margin-top: 6px;
+            font-weight: 500;
+            transition: background 0.2s ease;
+        }
+        .button:hover {
+            background: #5a78c5;
+        }
+        .button.secondary {
+            background: #d8dce3;
+            color: #5a6c7d;
+        }
+        .button.secondary:hover {
+            background: #c8cdd3;
+        }
+        .footer {
+            background: #f0f2f5;
+            color: #5a6c7d;
+            padding: 8px;
+            text-align: center;
+            font-size: 10px;
+            margin-top: 14px;
+            border-radius: 5px;
+            font-weight: 500;
+        }
+        .search-box {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #d8dce3;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 11px;
+            background: #ffffff;
+            color: #5a6c7d;
+        }
+        .search-box::placeholder {
+            color: #b0bcc4;
+        }
+        .filter-tags {
+            display: flex;
+            gap: 7px;
+            margin-bottom: 12px;
+            flex-wrap: wrap;
+        }
+        .tag {
+            background: #ffffff;
+            padding: 5px 9px;
+            border-radius: 5px;
+            font-size: 10px;
+            cursor: pointer;
+            border: 1px solid #d8dce3;
+            color: #7b8b9e;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+        .tag:hover {
+            border-color: #6b8cdb;
+            color: #6b8cdb;
+        }
+        .tab-content {
+            margin-bottom: 12px;
+        }
+        .form-group {
+            margin-bottom: 11px;
+        }
+        .form-label {
+            display: block;
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 4px;
+            font-size: 11px;
+        }
+        .form-input {
+            width: 100%;
+            padding: 7px 9px;
+            border: 1px solid #d8dce3;
+            border-radius: 5px;
+            font-size: 11px;
+            background: #ffffff;
+            color: #4a5568;
+            font-family: inherit;
+        }
+        .form-input::placeholder {
+            color: #b0bcc4;
+        }
+        .icon-placeholder {
+            display: inline-block;
+            width: 18px;
+            height: 18px;
+            background: #d8dce3;
+            border-radius: 3px;
+            margin-right: 6px;
+            vertical-align: middle;
+        }
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+            padding: 10px;
+            background: #f8fbfe;
+            border-radius: 6px;
+        }
+        .avatar {
+            width: 38px;
+            height: 38px;
+            background: linear-gradient(135deg, #6b8cdb 0%, #5a78c5 100%);
+            border-radius: 50%;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 12px;
+            flex-shrink: 0;
+        }
+        .flow-diagram {
+            background: #f8fbfe;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            border: 1px dashed #6b8cdb;
+        }
+        .flow-title {
+            font-weight: 600;
+            color: #4a5568;
+            margin-bottom: 14px;
+            font-size: 13px;
+        }
+        .flow-step {
+            display: inline-block;
+            background: linear-gradient(135deg, #6b8cdb 0%, #5a78c5 100%);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 5px;
+            margin: 6px;
+            font-size: 11px;
+            font-weight: 500;
+        }
+        .flow-arrow {
+            display: inline-block;
+            color: #6b8cdb;
+            font-weight: 600;
+            margin: 6px;
+        }
+        .notes {
+            background: #fef9e7;
+            border-left: 3px solid #e8b923;
+            padding: 12px;
+            margin-top: 12px;
+            border-radius: 5px;
+            font-size: 11px;
+            color: #8b8b5f;
+            line-height: 1.5;
+        }
+        .notes strong {
+            color: #5a6c7d;
+        }
+        h2 {
+            color: #4a5568;
+            font-weight: 600;
+            font-size: 18px;
+        }
+        a {
+            color: #6b8cdb;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        hr {
+            border: none;
+            border-top: 1px solid #e8eaef;
+            margin: 12px 0;
+        }
+        ul {
+            color: #5a6c7d;
+            line-height: 1.7;
+        }
+        li {
+            margin-bottom: 8px;
+            font-size: 13px;
+        }
+        strong {
+            color: #4a5568;
+            font-weight: 600;
+        }
+        p {
+            color: #5a6c7d;
+            line-height: 1.6;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>📚 Education Platform</h1>
+        <p class="subtitle">Task 1: Wireframing & Low-Fidelity Design</p>
+
+        <div class="wireframe-grid">
+            <!-- Screen 1: Login/Sign-up -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 1: Login / Sign Up</div>
+                <div class="wireframe-content">
+                    <div class="header">
+                        <h3>🎓 EduLearn</h3>
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label">Email or Username</div>
+                        <input type="text" class="form-input" placeholder="Enter your email">
+                    </div>
+                    <div class="form-group">
+                        <div class="form-label">Password</div>
+                        <input type="password" class="form-input" placeholder="Enter password">
+                    </div>
+                    <button class="button">Login</button>
+                    <p style="font-size: 11px; color: #8b95a5; margin-top: 12px;">
+                        Don't have account? <a href="#">Sign Up</a>
+                    </p>
+                    <hr>
+                    <button class="button secondary" style="width: 100%;">Login with Google</button>
+                    <p style="font-size: 10px; color: #8b95a5; text-align: center; margin-top: 12px;">
+                        Forgot Password?
+                    </p>
+                </div>
+            </div>
+
+            <!-- Screen 2: Home/Dashboard -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 2: Home Dashboard</div>
+                <div class="wireframe-content">
+                    <div class="user-info">
+                        <div class="avatar">JD</div>
+                        <div>
+                            <div style="font-weight: 600; color: #4a5568; font-size: 12px;">John Doe</div>
+                            <div style="font-size: 10px; color: #8b95a5;">Welcome back!</div>
+                        </div>
+                    </div>
+                    <div class="header">
+                        <h3>Continue Learning</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Web Development 101</div>
+                        <div class="card-desc">Module 5 of 10 • 50% Complete</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                        <button class="button">Resume Course</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Python for Beginners</div>
+                        <div class="card-desc">Module 2 of 8 • 25% Complete</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                        <button class="button">Resume Course</button>
+                    </div>
+                    <div class="header" style="margin-top: 15px;">
+                        <h3>Recommended Courses</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">UI/UX Design Basics</div>
+                        <div class="card-desc">Beginner • 6 weeks</div>
+                        <button class="button secondary">View</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 3: Browse Courses -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 3: Browse Courses</div>
+                <div class="wireframe-content">
+                    <div class="header">
+                        <h3>Explore Courses</h3>
+                    </div>
+                    <input type="text" class="search-box" placeholder="🔍 Search courses...">
+                    <div class="filter-tags">
+                        <div class="tag">All</div>
+                        <div class="tag">Programming</div>
+                        <div class="tag">Design</div>
+                        <div class="tag">Business</div>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">React.js Fundamentals</div>
+                        <div class="card-desc">Advanced • 8 weeks • 4.8★</div>
+                        <div style="font-size: 12px; color: #52c41a; margin: 6px 0;">$49.99</div>
+                        <button class="button">Enroll</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Digital Marketing Mastery</div>
+                        <div class="card-desc">Intermediate • 6 weeks • 4.6★</div>
+                        <div style="font-size: 12px; color: #52c41a; margin: 6px 0;">$39.99</div>
+                        <button class="button">Enroll</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Data Science with Python</div>
+                        <div class="card-desc">Advanced • 10 weeks • 4.9★</div>
+                        <div style="font-size: 12px; color: #52c41a; margin: 6px 0;">$59.99</div>
+                        <button class="button">Enroll</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 4: Course Detail -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 4: Course Detail Page</div>
+                <div class="wireframe-content">
+                    <div style="background: linear-gradient(135deg, #e8f0ff 0%, #f0f5ff 100%); height: 90px; margin-bottom: 15px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #8b95a5; border: 1px solid #d8dce3;">
+                        [Course Banner Image]
+                    </div>
+                    <div class="card-title">Web Development 101</div>
+                    <div class="card-desc">Beginner • 10 Weeks • 4.8★ (250 reviews)</div>
+                    <div class="card">
+                        <strong>Instructor: Jane Smith</strong>
+                        <p style="font-size: 11px; color: #8b95a5; margin-top: 6px;">
+                            Learn web development from scratch with hands-on projects.
+                        </p>
+                    </div>
+                    <div class="header">
+                        <h3>What You'll Learn</h3>
+                    </div>
+                    <div style="font-size: 12px; color: #4a5568; line-height: 1.6;">
+                        • HTML5 Basics<br>
+                        • CSS Styling<br>
+                        • JavaScript Fundamentals<br>
+                        • Responsive Design
+                    </div>
+                    <button class="button" style="width: 100%; margin-top: 15px;">Enroll Now ($49.99)</button>
+                    <button class="button secondary" style="width: 100%; margin-top: 8px;">Add to Wishlist</button>
+                </div>
+            </div>
+
+            <!-- Screen 5: Learning Module -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 5: Learning Module / Video Player</div>
+                <div class="wireframe-content">
+                    <div style="background: linear-gradient(135deg, #e8f4f8 0%, #f0f5ff 100%); height: 130px; margin-bottom: 15px; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: #6b8cdb; font-size: 24px; border: 1px solid #d8dce3;">
+                        ▶ Video Player
+                    </div>
+                    <div class="card-title">Module 5: Advanced CSS Grid</div>
+                    <div class="card-desc">Lesson Duration: 45 mins</div>
+                    <div class="progress-bar"><div class="progress-fill" style="width: 100%;"></div></div>
+                    <div class="header">
+                        <h3>Course Content</h3>
+                    </div>
+                    <div style="font-size: 12px;">
+                        <div style="padding: 8px; background: #e8f4f8; border-left: 3px solid #3498db; margin-bottom: 8px; border-radius: 2px;">
+                            <strong>📌 Lesson 5.1</strong> - Currently Playing
+                        </div>
+                        <div style="padding: 8px; background: #f0f2f5; border-left: 3px solid #95a5a6; margin-bottom: 8px; border-radius: 2px;">
+                            ✅ Lesson 5.2 - Completed
+                        </div>
+                        <div style="padding: 8px; background: #f0f2f5; border-left: 3px solid #95a5a6; margin-bottom: 8px; border-radius: 2px;">
+                            🔒 Lesson 5.3 - Locked
+                        </div>
+                    </div>
+                    <button class="button" style="width: 100%; margin-top: 12px;">Next Lesson →</button>
+                </div>
+            </div>
+
+            <!-- Screen 6: My Courses / Progress -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 6: My Courses & Progress</div>
+                <div class="wireframe-content">
+                    <div class="nav-bar">
+                        <div class="nav-item active">In Progress</div>
+                        <div class="nav-item">Completed</div>
+                        <div class="nav-item">Wishlist</div>
+                    </div>
+                    <div class="header">
+                        <h3>Active Courses</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Web Development 101</div>
+                        <div class="card-desc">Module 5 of 10 • 50%</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 50%;"></div></div>
+                        <div style="font-size: 11px; color: #8b95a5;">Started: Jan 15, 2024</div>
+                        <button class="button">Continue</button>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">Python for Beginners</div>
+                        <div class="card-desc">Module 2 of 8 • 25%</div>
+                        <div class="progress-bar"><div class="progress-fill" style="width: 25%;"></div></div>
+                        <div style="font-size: 11px; color: #8b95a5;">Started: Jan 20, 2024</div>
+                        <button class="button">Continue</button>
+                    </div>
+                    <div class="header" style="margin-top: 15px;">
+                        <h3>Completed Certificates</h3>
+                    </div>
+                    <div class="card">
+                        <div class="card-title">✅ Basic HTML & CSS</div>
+                        <div style="font-size: 11px; color: #52c41a;">Completed: Dec 10, 2023</div>
+                        <button class="button secondary">Download Certificate</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Screen 7: User Profile -->
+            <div class="wireframe">
+                <div class="wireframe-title">Screen 7: User Profile</div>
+                <div class="wireframe-content">
+                    <div style="text-align: center; padding: 20px 0; border-bottom: 1px solid #f0f2f5;">
+                        <div style="width: 60px; height: 60px; background: #3498db; border-radius: 50%; margin: 0 auto 10px; display: flex; align-items: center; justify-content: center; color: white; font-size: 24px; font-weight: bold;">
+                            JD
+                        </div>
+                        <div class="card-title">John Doe</div>
+                        <div class="card-desc">john.doe@email.com</div>
+                    </div>
+                    <div class="header" style="margin-top: 15px;">
+                        <h3>Profile Information</h3>
+                    </div>
+                    <div class="card">
+                        <strong style="font-size: 12px;">Member Since</strong>
+                        <div style="font-size: 11px; color: #8b95a5;">January 2024</div>
+                    </div>
+                    <div class="card">
+                        <strong style="font-size: 12px;">Courses Completed</strong>
+                        <div style="font-size: 11px; color: #8b95a5;">2 Courses</div>
+                    </div>
+                    <div class="card">
+                        <strong style="font-size: 12px;">Learning Streak</strong>
+                        <div style="font-size: 11px; color: #8b95a5;">🔥 15 Days</div>
+                    </div>
+                    <div class="header" style="margin-top: 15px;">
+                        <h3>Settings</h3>
+                    </div>
+                    <div class="card" style="cursor: pointer;">⚙️ Account Settings</div>
+                    <div class="card" style="cursor: pointer;">🔔 Notifications</div>
+                    <div class="card" style="cursor: pointer;">❓ Help & Support</div>
+                    <div class="card" style="cursor: pointer; color: #d97706;">🚪 Logout</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Flow Diagram -->
+        <div class="flow-diagram">
+            <div class="flow-title">📊 User Journey Flow</div>
+            <div>
+                <div class="flow-step">Sign Up</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Browse Courses</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Enroll</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Learn</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Complete</div>
+            </div>
+            <br>
+            <div>
+                <div class="flow-step">Home</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">My Courses</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">View Module</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Watch Video</div>
+                <div class="flow-arrow">→</div>
+                <div class="flow-step">Complete Lesson</div>
+            </div>
+        </div>
+
+        <!-- Annotations & Notes -->
+        <div style="margin-top: 40px;">
+            <h2 style="color: #4a5568; margin-bottom: 20px;">📝 Wireframe Annotations & Key Features</h2>
+            
+            <div class="notes">
+                <strong>Screen 1 - Login/Sign Up:</strong>
+                Email/password authentication + social login option (Google). Include "Forgot Password" link for account recovery.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 2 - Home Dashboard:</strong>
+                Personalized greeting with user avatar. Shows "Continue Learning" section with in-progress courses and their completion percentage. Recommended courses section to encourage exploration.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 3 - Browse Courses:</strong>
+                Search functionality + filter by category. Course cards show title, difficulty, duration, rating, and price. Clear "Enroll" button for user action.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 4 - Course Detail:</strong>
+                Course banner image, instructor info, course description, learning outcomes list, and prominent "Enroll Now" CTA. Wishlist option for saving courses.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 5 - Learning Module:</strong>
+                Large video player at top. Course content list shows current lesson, completed lessons (✅), and locked lessons (🔒). Progress indicator and "Next Lesson" navigation button.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 6 - My Courses:</strong>
+                Tabbed interface (In Progress, Completed, Wishlist). Each course shows progress bar, duration info, and action buttons. Separate section for earned certificates.
+            </div>
+
+            <div class="notes">
+                <strong>Screen 7 - User Profile:</strong>
+                User avatar, name, email. Member stats (since date, courses completed, learning streak). Settings menu for account, notifications, and support. Logout option.
+            </div>
+        </div>
+
+        <!-- Key Design Principles -->
+        <div style="margin-top: 30px; padding: 20px; background: #f0f5ff; border-radius: 8px; border-left: 4px solid #6b8cdb;">
+            <h3 style="color: #4a5568; margin-bottom: 12px;">✨ Key Design Principles Used</h3>
+            <ul style="color: #4a5568; line-height: 1.8; font-size: 13px;">
+                <li><strong>Clear Hierarchy:</strong> Important actions (Enroll, Continue, Login) are prominent with button styling</li>
+                <li><strong>Consistency:</strong> Same card design, color scheme, and button styles across all screens</li>
+                <li><strong>Navigation:</strong> Tabbed navigation for categorization; footer/header for main navigation elements</li>
+                <li><strong>Visual Feedback:</strong> Progress bars, completion checkmarks, and status indicators show user progress</li>
+                <li><strong>User Personalization:</strong> Welcome message, "Continue Learning" section, and user profile make it personalized</li>
+                <li><strong>Mobile-First:</strong> Vertical layout suitable for mobile, with clear tap targets and spacing</li>
+                <li><strong>Information Density:</strong> Cards group related information without overwhelming users</li>
+            </ul>
+        </div>
+
+        <!-- Next Steps -->
+        <div style="margin-top: 30px; padding: 20px; background: #fef9e7; border-radius: 8px; border-left: 4px solid #e8b923;">
+            <h3 style="color: #4a5568; margin-bottom: 12px;">🚀 Next Steps for High-Fidelity Design</h3>
+            <ul style="color: #4a5568; line-height: 1.8; font-size: 13px;">
+                <li>Recreate these wireframes in <strong>Figma/Adobe XD</strong> with accurate spacing and alignment</li>
+                <li>Create a <strong>color palette</strong> (e.g., primary: blue, secondary: green, neutral: grays)</li>
+                <li>Apply <strong>typography</strong> (e.g., titles: 16px bold, body: 12px regular)</li>
+                <li>Design <strong>interactive elements</strong> (buttons, input fields, modals) with hover/active states</li>
+                <li>Add real or placeholder images for course banners and user avatars</li>
+                <li>Create <strong>component library</strong> (buttons, cards, navigation, forms) for consistency</li>
+                <li>Design <strong>responsive variants</strong> for tablet and desktop versions</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
